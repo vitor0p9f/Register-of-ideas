@@ -180,6 +180,26 @@ form label{
     letter-spacing: 0.8px;
 }
 
+form a{
+    background-color: #ffffff22;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    align-self: center;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    transition: 400ms;
+}
+
+form a:hover {
+    background-color: white;
+    color: #ff5E84;
+}
+
 form button{
     background: white;
     width: 150px;
@@ -190,6 +210,7 @@ form button{
     grid-column: 2;
     justify-self: end;
     margin-bottom: 32px;
+    transition: 400ms;
 }
 
 form button:hover{
@@ -199,9 +220,11 @@ form button:hover{
 }
 
 #modal.hide{
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 #container.hidecontainer{
     display: none;
+    visibility: hidden;
 }
