@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-ideas">
+    <div id="container">
+        <header>
+            <a href="index.html">
+                <img src="./img/27pdZLL - Imgur.png">
+            </a>
+            <nav>
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                    <a class="button" href="#" onclick="onOff()">Nova idea</a>
+                </li>
+            </nav>
+        </header>
+        <section id="title">
+            <p>Em exibição</p>
+            <h1>Ideias</h1>
+        </section>
+        <main>
+            <section id="ideas">
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/718/718870.svg">
+                    <div class="content">
+                        <h3>Curso de hacking</h3>
+                        <p>Estudo</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id labore, alias officia ducimus modi eaque pariatur enim deleniti minus nisi quia veniam sed eligendi iste laborum commodi totam?
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/2934/2934905.svg">
+                    <div class="content">
+                        <h3>Ir a praia</h3>
+                        <p>Diversão</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id labore, alias officia ducimus modi eaque pariatur enim deleniti minus nisi quia veniam sed eligendi iste laborum commodi totam?
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/2996/2996991.svg">
+                    <div class="content">
+                        <h3>Matricular-se na academia</h3>
+                        <p>Exercício</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id labore, alias officia ducimus modi eaque pariatur enim deleniti minus nisi quia veniam sed eligendi iste laborum commodi totam?
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/3224/3224955.svg">
+                    <div class="content">
+                        <h3>Comprar sorvete</h3>
+                        <p>Casual</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id labore, alias officia ducimus modi eaque pariatur enim deleniti minus nisi quia veniam sed eligendi iste laborum commodi totam?
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            Com ♥️ <a target="_blank" href="http://rocketseat.com.br">Rocketseat</a>
+        </footer>
+    </div>
+    <!-- Modal -->
+    <div id="modal" class="hide">
+        <div class="content">
+            <h1>Nova ideia</h1>
+            <form action="" type="">
+                <div class="input-wrapper">
+                    <label for="title">Titulo da ideia</label>
+                    <input type="text" name="title"/>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="category">Categoria</label>
+                    <input type="text" name="category"/>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="image">Link da imagem</label>
+                    <input type="text" name="image"/>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="description">Digite uma descrição</label>
+                    <textarea name="description" cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="link">Link da ideia</label>
+                    <input type="text" name="link"/>
+                </div>
+                <a href="#" onclick="onOff()" >Voltar</a>
+                <button>Salvar</button>
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

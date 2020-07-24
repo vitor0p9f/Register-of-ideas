@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;0,700;0,900;1,400&display=swap');
+
+/* Index.html */
+
+/* Global */
+
 html,body{
     margin: 0;
     padding: 0;
@@ -63,6 +68,26 @@ footer a{
     opacity: 0.7;
 }
 
+.button:hover{
+    text-decoration: none;
+    background-color: #0984e3;
+}
+
+.button{
+    background-color: #ff5E84;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: 6px 6px 16px #ff5E8455 ;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Padrão */
 #container{
     width: 90%;
     max-width: 980px;
@@ -72,7 +97,7 @@ footer a{
 
 #intro{
     width: 300px;
-    margin-right: 35px;
+    margin-right: 64px;
 }
 
 #intro main{
@@ -83,19 +108,6 @@ footer a{
     display: flex;
     margin-bottom: 32px;
     justify-content: space-evenly;
-}
-
-.fat:hover{
-    text-decoration: none;
-}
-
-.fat{
-    background-color: #ff5E84;
-    color: white;
-    width: 150px;
-    height: 40px;
-    border-radius: 6px;
-    box-shadow: 6px 6px 16px #ff5E8455 ;
 }
 
 .idea{
@@ -133,7 +145,7 @@ footer a{
     position: absolute;
     top: 0;
     height: auto;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -220,11 +232,85 @@ form button:hover{
 }
 
 #modal.hide{
-    opacity: 0;
-    visibility: hidden;
+    display: none;
 }
 
 #container.hidecontainer{
     display: none;
-    visibility: hidden;
+}
+
+#page-ideas #modal.hide{
+    display: none;
+}
+
+#page-ideas #container.hidecontainer{
+    display: none;
+}
+
+/* Idea.html */
+
+#page-ideas #container{
+    display: block;
+}
+
+#page-ideas header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#page-ideas nav{
+    display: flex;
+    align-items: center;
+}
+
+#page-ideas nav li{
+    list-style: none;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+#page-ideas nav li a{
+    color: #24282B;
+}
+
+#page-ideas nav li a.button{
+    color: white;
+}
+
+#page-ideas nav li:last-child{
+    margin:0;
+}
+
+section#title{
+    text-align: center;
+}
+
+section#title p{
+    opacity: 0.7;
+    margin: 0;
+}
+
+section#title h1{
+    margin: 0;
+    font-size: 28px;
+}
+
+section#ideas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+section#ideas .idea{
+    margin: 0;
+}
+
+#page-ideas footer{
+    margin: 50px;
+}
+
+section#ideas,
+section#title,
+#page-ideas footer{
+    margin-top: 64px;
 }
