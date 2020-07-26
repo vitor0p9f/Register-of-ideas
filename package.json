@@ -1,0 +1,27 @@
+{
+  "name": "Register-of-ideas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorPereiraFontes/Register-of-ideas.git"
+  },
+  "keywords": [],
+  "author": "Vitor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitorPereiraFontes/Register-of-ideas/issues"
+  },
+  "homepage": "https://github.com/VitorPereiraFontes/Register-of-ideas#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
