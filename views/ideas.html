@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% set bodyId = "page-ideas" %} 
+{% set titlePage = "Ideias" %}
+{% block content %}   
+<header>
+    <a href="/">
+        <img src="./img/27pdZLL - Imgur.png">
+    </a>
+    <nav>
+        <li>
+            <a href="/">Inicio</a>
+        </li>
+        <li>
+            <a class="button" href="#" onclick="onOff()">Nova idea</a>
+        </li>
+    </nav>
+</header>
+<section id="title">
+    <p>Em exibição</p>
+    <h1>Ideias</h1>
+</section>
+<main>
+    <section id="ideas">
+        {% include 'all_ideas.html' %}
+    </section>
+</main>
+<footer>
+    Com ♥️ <a target="_blank" href="http://rocketseat.com.br">Rocketseat</a>
+</footer>
+{% endblock %}
