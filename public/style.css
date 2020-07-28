@@ -316,3 +316,11 @@ section#title,
 #page-ideas footer{
     margin-top: 64px;
 }
+
+button#delete{
+    position: relative;
+    top: -25px;
+    right: -25px;
+    height: 30px;
+    width: 30px;
+}
