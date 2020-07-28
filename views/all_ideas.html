@@ -9,6 +9,8 @@
         </div>
         <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
     </div>
-    <button id="delete"><a href="/delete/{{idea.id}}">X</a></button>
+    <div id="close-btn">
+        <button><a href="/delete/{{idea.id}}">X</a></button>
+    </div>
 </div>
 {% endfor %}

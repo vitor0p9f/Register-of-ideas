@@ -111,6 +111,10 @@ footer a{
     justify-content: space-evenly;
 }
 
+#last-ideas{
+    max-width: 70%;
+}
+
 .idea{
     display: flex;
     margin-bottom: 32px;
@@ -118,6 +122,7 @@ footer a{
     padding: 32px;
     border-radius: 8px;
     box-shadow: 0 4px 16px -8px rgba(1,1,1,0.2);
+    position: relative;
 }
 
 .idea img{
@@ -136,6 +141,7 @@ footer a{
 }
 
 .idea .description{
+    box-sizing: border-box;
     margin: 16px 0;
 }
 
@@ -317,10 +323,10 @@ section#title,
     margin-top: 64px;
 }
 
-button#delete{
-    position: relative;
-    top: -25px;
-    right: -25px;
+#close-btn{
+    position: absolute;
+    top: 3px;
+    right: -5px;
     height: 30px;
     width: 30px;
 }
