@@ -1,69 +1,88 @@
 const express = require ('express');
 const server = express();
 const nunjucks = require('nunjucks');
-
-const ideas = [
-    {
-        img: "https://image.flaticon.com/icons/svg/718/718870.svg",
-        title: "Curso de hacking",
-        category: "Estudo",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id",
-        url: "https://www.hackersecurity.com"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2934/2934905.svg",
-        title: "Ir à praia",
-        category: "Diversão",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id",
-        url: "https://www.hackersecurity.com"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2996/2996991.svg",
-        title: "Matricular-se na academia",
-        category: "Exercício",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id",
-        url: "https://www.hackersecurity.com"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/3224/3224955.svg",
-        title: "Comprar sorvete",
-        category: "Casual",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id",
-        url: "https://www.hackersecurity.com"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/3181/3181807.svg",
-        title: "Comprar remédio",
-        category: "Saúde",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt non id",
-        url: "https://www.hackersecurity.com"
-    },
-]
+const db = require('./db');
 
 server.use(express.static('public'));
+
+server.use(express.urlencoded({ extended: true }));
 
 nunjucks.configure('views',{
     express: server,
     noCache: true,
-})
+});
 
 server.get("/",(req,res)=>{
-    let lastIdeas = [];
-    const reversedIdeas = [...ideas].reverse();
-
-    for(let idea of reversedIdeas){
-        if(lastIdeas.length < 2){
-            lastIdeas.push(idea);
+    db.all(`SELECT * FROM ideas`,(err,rows)=>{
+        if(err){
+            console.log(err);
+            return res.send("Erro ao acessar o banco de Dados")
         }
-    }
 
-    res.render('index.html',{ ideas: lastIdeas });
-})
+        let lastIdeas = [];
+        const reversedIdeas = [...rows].reverse();
+        
+        for(let idea of reversedIdeas){
+            if(lastIdeas.length < 2){
+                lastIdeas.push(idea);
+            }
+        }
+    
+       return res.render('index.html',{ ideas: lastIdeas });
+    });
+});
+
+server.post("/",(req,res)=>{
+    const query = `
+        INSERT INTO ideas(
+            image,
+            title,
+            category,
+            description,
+            link
+        ) VALUES(?,?,?,?,?);
+    `;
+    const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link
+    ];
+
+    db.run(query,values,(err)=>{
+        if(err){
+            console.log(err);
+            return res.send("Erro ao acessar o banco de Dados")
+        }
+
+        return res.redirect('/');
+    });
+});
 
 server.get("/ideas",(req,res)=>{
-    const reversedIdeas = [...ideas].reverse();
 
-    res.render('ideas.html',{ ideas: reversedIdeas });
-})
+    db.all(`SELECT * FROM ideas`,(err,rows)=>{
+        if(err){
+            console.log(err);
+            return res.send("Erro ao acessar o banco de Dados")
+        }
+
+        const reversedIdeas = [...rows].reverse();
+
+        return res.render('ideas.html',{ ideas: reversedIdeas });
+    });
+});
+
+server.get("/delete/:id",(req,res)=>{
+    db.run(`DELETE FROM ideas WHERE id = ?`,[req.params.id],(err)=>{
+        if(err){
+            console.log(err);
+            return res.send("Erro ao acessar o banco de Dados")
+        }
+
+        return res.redirect('/');
+    });
+});
 
 server.listen(3000);
